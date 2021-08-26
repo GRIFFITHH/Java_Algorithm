@@ -9,9 +9,5 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-
-        String dna = "TCGATCGAATGCTAGCATGCATGTACTTTAATCGATGCTAGCTAGCTAGCTAGCTAG";
-        String str = new AllCodons().findGene(dna);
-        System.out.println(str);
     }
 }
