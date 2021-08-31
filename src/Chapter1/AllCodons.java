@@ -87,7 +87,7 @@ public class AllCodons { // 모든 유전자를 찾는 클래스.
     public void printAllGene(String dna) {
         // 0으로 설정 , 시작위치를 알려준다
         int startIndex = 0;
-
+        int count = 0;
         //아래의 과정을 반복
         while (true) {
             String currGene = findGene(dna, startIndex);
@@ -96,10 +96,74 @@ public class AllCodons { // 모든 유전자를 찾는 클래스.
             if(currGene.isEmpty()){
                 break;
             }
-            System.out.println(currGene);
+            //System.out.println(currGene);
+            if (currGene.length() > 60) {
+                count++;
+            }
             startIndex = dna.indexOf(currGene, startIndex) +
                          currGene.length();
         }
+        System.out.println(count);
+    }
+
+
+    public void findCgratioGreaterThan0dot35(String dna) {
+        // 0으로 설정 , 시작위치를 알려준다
+        int startIndex = 0;
+        int count = 0;
+        //아래의 과정을 반복
+        while (true) {
+            String currGene = findGene(dna, startIndex);
+
+            //유전자가 없을때
+            if(currGene.isEmpty()){
+                break;
+            }
+            //System.out.println(currGene);
+
+            if (findCgRatio(currGene) > 0.35) {
+                ++count;
+            }
+            startIndex = dna.indexOf(currGene, startIndex) +
+                    currGene.length();
+        }
+        System.out.println(count);
+    }
+
+    public void findLongestGene(String dna) {
+        // 0으로 설정 , 시작위치를 알려준다
+        int startIndex = 0;
+        String longestGene = "";
+        //아래의 과정을 반복
+        while (true) {
+            String currGene = findGene(dna, startIndex);
+
+            //유전자가 없을때
+            if(currGene.isEmpty()){
+                break;
+            }
+            //System.out.println(currGene);
+
+            if (currGene.length() >= longestGene.length()) {
+                longestGene = currGene;
+            }
+            startIndex = dna.indexOf(currGene, startIndex) +
+                    currGene.length();
+        }
+        System.out.println(longestGene.length());
+    }
+
+    public float findCgRatio(String gene) {
+        //시작위치
+        RemoveT rm = new RemoveT();
+        String result1 = rm.removeA(gene);
+        System.out.println(result1);
+        String result2 = rm.removeT(result1);
+        System.out.println(result2);
+
+        float calc = result2.length() / (float)(gene.length());
+
+        return calc;
     }
 
     public void testOn(String dna) {
@@ -141,4 +205,6 @@ public class AllCodons { // 모든 유전자를 찾는 클래스.
 //        System.out.println(result);
         findGene("AAAATGAAAAAAAAATGAAAS");
     }
+
+
 }
