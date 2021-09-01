@@ -1,6 +1,4 @@
-package Chapter1;
-
-import java.io.File;
+package JavaProgrammingChapter1;
 
 public class FindGeneSimpleAndTest {
 

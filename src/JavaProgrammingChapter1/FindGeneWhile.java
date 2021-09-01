@@ -1,4 +1,4 @@
-package Chapter1;
+package JavaProgrammingChapter1;
 
 public class FindGeneWhile {
 

@@ -1,6 +1,6 @@
 package com.company;
 
-import Chapter1.*;
+import JavaProgrammingChapter1.*;
 
 public class Main {
 
