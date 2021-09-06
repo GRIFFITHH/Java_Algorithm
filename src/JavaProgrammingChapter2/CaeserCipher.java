@@ -9,6 +9,7 @@ public class CaeserCipher {
         String alphqbet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         String shiftedAlphabet = alphqbet.substring(key) + alphqbet.substring(0,key);
+        System.out.println(shiftedAlphabet);
 
         for (int i = 0; i < sb.length(); i++) {
             char currChar = sb.charAt(i);
